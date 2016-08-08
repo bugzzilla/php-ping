@@ -2,8 +2,10 @@
 
 	require_once ('./ping/ping.class.php');
 	
-	$p = new ping('localhost',1);
+	$p = new ping();
 	
-	if ($p->pingResult['returnVar'] == 0) echo "Success\n"; else echo "False";
+	$p->ping('localhost',1);
+	
+	print_r($p->pingResult);
 		
 	
