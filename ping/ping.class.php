@@ -31,11 +31,11 @@
 						$this->pingResult['rttAvg'] = $res[1];
 						$this->pingResult['rttMax'] = $res[2];
 						$this->pingResult['rttMdev'] = $res[3];						
-						$res = explode(', ',prev($this->pingResult['rawStdout']));
-						$this->pingResult['packetsTransmitted'] = strstr($res[0],' p', true);
-						$this->pingResult['packetsReceived'] = strstr($res[1],' r', true);
-						$this->pingResult['packetLoss'] = strstr($res[2],'%', true);
-						$this->pingResult['time'] = strstr(str_replace('time ', '', $res[3]),'ms', true);						
+						$res = explode(', ',str_replace(array (' packets transmitted', ' received', '% packet loss', ' time', 'ms'), '', prev($this->pingResult['rawStdout'])));
+						$this->pingResult['packetsTransmitted'] = $res[0];
+						$this->pingResult['packetsReceived'] = $res[1];
+						$this->pingResult['packetLoss'] = $res[2];
+						$this->pingResult['time'] = $res[3];						
 					}
 						
 				} elseif (strpos(strtoupper(PHP_OS), 'WIN') === 0) {

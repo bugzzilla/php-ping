@@ -4,8 +4,8 @@
 	
 	$p = new ping();
 	
-	$p->ping('mail.ru',3);
+	$p->ping('mail.ru',1);
 	
-	print_r($p->pingResult);
+	var_dump($p->pingResult);
 		
 	
