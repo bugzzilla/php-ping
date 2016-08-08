@@ -40,7 +40,7 @@
 					$pingResult['rttMin'] = $res[0];
 					$pingResult['rttMax'] = $res[1];
 					$pingResult['rttAvg'] = $res[2];
-					prev($this->pingResult['rawStdout']);
+					prev($pingResult['rawStdout']);
 					$res = explode(',', trim(str_replace(array('Packets: Sent = ', ' Received = ', ' Lost = '), '', prev($pingResult['rawStdout']))));
 					$pingResult['packetsTransmitted'] = $res[0];
 					$pingResult['packetsReceived'] = $res[1];
