@@ -45,8 +45,9 @@
 						$res = explode(',', trim(end($this->pingResult['rawStdout'])));
 						$this->pingResult['rttMin'] = strstr(str_replace('Minimum = ', '', $res[0]),'ms', true);
 						$this->pingResult['rttMax'] = strstr(str_replace('Maximum = ', '', $res[1]),'ms', true);
-						$this->pingResult['rttAvg'] = strstr(str_replace('Average = ', '', $res[2]),'ms', true);						
-						$res = explode(',', trim(prev(prev($this->pingResult['rawStdout'])))); 
+						$this->pingResult['rttAvg'] = strstr(str_replace('Average = ', '', $res[2]),'ms', true);
+						prev($this->pingResult['rawStdout']);
+						$res = explode(',', trim(prev($this->pingResult['rawStdout']))); 
 						print_r($res);
 						
 					}
