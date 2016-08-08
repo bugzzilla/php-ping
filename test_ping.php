@@ -2,10 +2,10 @@
 
 	require_once ('./ping/ping.class.php');
 	
-	$p = new ping();
+	$p = new ping(array ('facebook.com','google.com','localhost'));
+	print_r($p->Result);
 	
-	$p->ping('mail.ru',1);
-	
-	var_dump($p->pingResult);
+	$p = new ping('google.com');
+	print_r($p->Result);
 		
 	
