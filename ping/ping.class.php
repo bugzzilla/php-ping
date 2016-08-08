@@ -43,9 +43,9 @@
 					exec('ping -n '.$echoRequestCount.' '.$host,$this->pingResult['rawStdout'],$this->pingResult['returnVar']);
 					if ($this->pingResult['returnVar'] == 0) {
 						$res = explode(',', end($this->pingResult['rawStdout']));
-						$this->pingResult['rttMin'] = strstr(str_replace('= ', '', $res[0]),'ms', true);
-						$this->pingResult['rttAvg'] = strstr(str_replace('= ', '', $res[1]),'ms', true);
-						$this->pingResult['rttMax'] = strstr(str_replace('= ', '', $res[2]),'ms', true);						
+						$this->pingResult['rttMin'] = strstr(str_replace('Minimum = ', '', $res[0]),'ms', true);
+						$this->pingResult['rttMax'] = strstr(str_replace('Maximum = ', '', $res[1]),'ms', true);
+						$this->pingResult['rttAvg'] = strstr(str_replace('Average = ', '', $res[2]),'ms', true);						
 						print_r($res);
 					}
 				}
