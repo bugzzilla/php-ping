@@ -42,10 +42,10 @@
 					exec('chcp 437',$this->pingResult['rawStdout'],$this->pingResult['returnVar']);					
 					exec('ping -n '.$echoRequestCount.' '.$host,$this->pingResult['rawStdout'],$this->pingResult['returnVar']);
 					if ($this->pingResult['returnVar'] == 0) {
-						$res = explode(',', trim(end($this->pingResult['rawStdout'])));
-						$this->pingResult['rttMin'] = strstr(str_replace('Minimum = ', '', $res[0]),'ms', true);
-						$this->pingResult['rttMax'] = strstr(str_replace('Maximum = ', '', $res[1]),'ms', true);
-						$this->pingResult['rttAvg'] = strstr(str_replace('Average = ', '', $res[2]),'ms', true);
+						$res = explode(',', trim(str_replace(array('ms','Minimum = ','Maximum = ','Average = '), '' ,end($this->pingResult['rawStdout']))));
+						$this->pingResult['rttMin'] = $res[0];
+						$this->pingResult['rttMax'] = $res[1];
+						$this->pingResult['rttAvg'] = $res[2];
 						prev($this->pingResult['rawStdout']);
 						$res = explode(',', trim(prev($this->pingResult['rawStdout']))); 
 						print_r($res);
