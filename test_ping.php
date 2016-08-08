@@ -2,9 +2,9 @@
 
 	require_once ('./ping/ping.class.php');
 	
-	$p = new ping('localhost',1);
+	$p = new ping();
 	
-	$p->ping();
+	$p->ping('mail.ru',3);
 	
 	print_r($p->pingResult);
 		
